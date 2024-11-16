@@ -1,0 +1,36 @@
+.content {
+    padding: 2rem;
+    height: 2000px; 
+  }
+  
+  .section {
+    margin-bottom: 3rem;
+  }
+  
+  .hero {
+    text-align: center;
+    padding: 5rem 0;
+    background-color: #f4f4f4;
+  }
+  
+  h1 {
+    font-size: 2.5rem;
+  }
+  
+  h2 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+  }
+  
+  p {
+    font-size: 1rem;
+    line-height: 1.6;
+  }
+  
+  #about, #research, #team, #contact {
+    background-color: #e9f7f5;
+    padding: 2rem;
+    margin-bottom: 3rem;
+    border-radius: 8px;
+  }
+  

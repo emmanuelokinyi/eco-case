@@ -4,6 +4,7 @@ import Logo from '../../Assets/logo.png';
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isNavbarVisible, setIsNavbarVisible] = useState(true);
   const navbarRef = useRef(null); 
   const menuRef = useRef(null); 
 
@@ -23,16 +24,35 @@ const Navbar = () => {
     setIsMenuOpen(false);
   };
 
-  
+ 
+  const [prevScrollPos, setPrevScrollPos] = useState(window.pageYOffset);
+
+  const handleScroll = () => {
+    const currentScrollPos = window.pageYOffset;
+
+    if (prevScrollPos > currentScrollPos) {
+    
+      setIsNavbarVisible(true);
+    } else {
+      
+      setIsNavbarVisible(false);
+    }
+
+    setPrevScrollPos(currentScrollPos);
+  };
+
   useEffect(() => {
     document.addEventListener('click', handleClickOutside);
+    window.addEventListener('scroll', handleScroll);
+    
     return () => {
       document.removeEventListener('click', handleClickOutside);
+      window.removeEventListener('scroll', handleScroll);
     };
-  }, []);
+  }, [prevScrollPos]);
 
   return (
-    <nav className="navbar" ref={navbarRef}>
+    <nav className={`navbar ${isNavbarVisible ? 'visible' : 'hidden'}`} ref={navbarRef}>
       <div className="logo">
         <img src={Logo} alt="Eco Case Logo" />
       </div>
