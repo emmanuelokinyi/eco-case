@@ -3,6 +3,7 @@ import './Navbar.css';
 import Logo from '../../Assets/logo.png';
 import Search from '../../Assets/search.png';
 import Search2 from '../../Assets/search2.png';
+import Divider from '../../Assets/divider.png'
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -71,9 +72,12 @@ const Navbar = () => {
           <input type="text" placeholder="Search..." />
           <img src={Search} alt="Search" className="search-icon-large" />
         </div>
+        
         <div className="search-icon-small" onClick={toggleSearch}>
-          <img src={Search2} alt="Search" />
+          <img src={Search2}  alt="Search" />
+          
         </div>
+        <img src={Divider} alt="divider" />
         <div className="menu-icon" onClick={toggleMenu}>
         ☰
       </div>
